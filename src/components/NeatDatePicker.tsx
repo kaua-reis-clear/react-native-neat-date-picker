@@ -7,7 +7,7 @@ import { StyleSheet, Dimensions, Platform, I18nManager, ColorValue, ViewStyle } 
 import Content from "./Content"
 import useDaysOfMonth from "../hooks/useDaysOfMonth"
 import format from '../dateformat'
-import { NeatDatePickerProps } from "./NeatDatePicker.d"
+import { NeatDatePickerProps, ColorOptions } from './NeatDatePicker.d'
 
 I18nManager.allowRTL(false)
 /**
@@ -209,6 +209,7 @@ NeatDatePicker.defaultProps = {
 
 export default NeatDatePicker
 
+export type { NeatDatePickerProps, ColorOptions }
 
 const styles = StyleSheet.create({
     modal: {
