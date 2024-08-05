@@ -146,15 +146,17 @@ const NeatDatePicker = ({
 
 
     useEffect(() => {
-        const [y, m, d] = [initialDate?.getFullYear(), initialDate?.getMonth(), initialDate?.getDate()]
-        const updatedInitalDate = initialDate && new Date(y, m, d)
+        if (initialDate) {
+            const [y, m, d] = [initialDate.getFullYear(), initialDate.getMonth(), initialDate.getDate()]
+            const updatedInitialDate = initialDate && new Date(y, m, d)
 
-        const newOutput = mode === 'single'
-            ? { date: updatedInitalDate ?? TODAY, startDate: null, endDate: null }
-            : { date: null, startDate: updatedInitalDate ?? startDate ?? TODAY, endDate: endDate || null }
+            const newOutput = mode === 'single'
+                ? { date: updatedInitialDate ?? TODAY, startDate: null, endDate: null }
+                : { date: null, startDate: updatedInitialDate ?? startDate ?? TODAY, endDate: endDate || null }
 
-        setOutput(newOutput)
-        setOriginalOutput({ ...newOutput })
+            setOutput(newOutput)
+            setOriginalOutput({ ...newOutput })
+        }
     }, [mode, initialDate])
 
 
